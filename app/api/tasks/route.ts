@@ -11,7 +11,7 @@ export async function OPTIONS() {
 // GET all tasks for the authenticated user
 export async function GET(request: Request) {
   try {
-    // ✅ Connect to database BEFORE querying Task model
+    // Connect to database BEFORE querying Task model
     await connectToDatabase();
 
     // Authenticate user from token in Authorization header
@@ -47,7 +47,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: "Title and due date are required" }, { status: 400, headers: corsHeaders });
     }
 
-    // ✅ Convert dueDate to a valid Date object
+    // Convert dueDate to a valid Date object
     const formattedDueDate = new Date(dueDate);
     if (isNaN(formattedDueDate.getTime())) {
       return NextResponse.json({ message: "Invalid date format. Use YYYY-MM-DD" }, { status: 400, headers: corsHeaders });
