@@ -1,0 +1,183 @@
+{
+	"info": {
+		"_postman_id": "58675d3e-9254-48ec-8cc4-547217b96801",
+		"name": "Task Manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "43054358",
+		"_collection_link": "https://daniel-3834.postman.co/workspace/6604e31c-8c93-4450-8cd3-6bfbd9c3ff1a/collection/43054358-58675d3e-9254-48ec-8cc4-547217b96801?action=share&source=collection_link&creator=43054358"
+	},
+	"item": [
+		{
+			"name": "authenticate users",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"name\": \"Adepegba\",\r\n    \"email\": \"adepegba@gmail.com\",\r\n    \"password\": \"adepegba\"\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/auth/signup"
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"email\": \"adepegba@gmail.com\",\r\n    \"password\": \"adepegba\"\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/auth/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Q0MzZiZWVlNWYxZTk1NGZhYjNkNjgiLCJpYXQiOjE3NDE5NjE1MjcsImV4cCI6MTc0MjU2NjMyN30.L3V5Da6r5lh1me2VBd6xixwKHm4VJzZFpBfiwOieQMQ"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"currentPassword\": \"bamudan\",\r\n    \"newPassword\":\"bamudan22\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/auth/change-password"
+					},
+					"response": []
+				},
+				{
+					"name": "Logout User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/auth/logout"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task Management",
+			"item": [
+				{
+					"name": "Create Task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Q0OTRiNmJlM2ZkOWZiODVhODE1NTYiLCJpYXQiOjE3NDE5OTMyMzIsImV4cCI6MTc0MjU5ODAzMn0.BW60kg7z9ReYbjlfi8FHExRXUmx1EYxnr-8Wtej5LT4"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"Dance\",\r\n    \"description\" : \"Dance\",\r\n    \"dueDate\" : \"2025-03-15\",\r\n    \"priority\": \"High\",\r\n    \"status\":\"Pending\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/tasks"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tasks",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Q0OTRiNmJlM2ZkOWZiODVhODE1NTYiLCJpYXQiOjE3NDE5OTMyMzIsImV4cCI6MTc0MjU5ODAzMn0.BW60kg7z9ReYbjlfi8FHExRXUmx1EYxnr-8Wtej5LT4"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/tasks"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Q0NDY4YTkyZDk3Zjg3YmVlNzhhMTciLCJpYXQiOjE3NDE5ODAyNzIsImV4cCI6MTc0MjU4NTA3Mn0.8zbqk9CVJdrqoX1ItfSF6P9W7fMmG6RieL5SRiqCQ9Y"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"Dance\",\r\n    \"description\" : \"Dance\",\r\n    \"dueDate\" : \"2025-03-15\",\r\n    \"priority\": \"High\",\r\n    \"status\":\"Completed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/tasks/67d48b0cadc1c75aeca6e9d4"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Q0OTRiNmJlM2ZkOWZiODVhODE1NTYiLCJpYXQiOjE3NDE5OTMyMzIsImV4cCI6MTc0MjU5ODAzMn0.BW60kg7z9ReYbjlfi8FHExRXUmx1EYxnr-8Wtej5LT4"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3000/api/tasks/67d4b630ea77d9b16b52d3f5"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
